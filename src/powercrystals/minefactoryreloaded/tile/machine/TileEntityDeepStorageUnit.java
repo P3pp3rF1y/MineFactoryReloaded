@@ -5,9 +5,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
+import net.minecraftforge.common.capabilities.Capability;
+
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.InvWrapper;
+import net.minecraftforge.items.CapabilityItemHandler;
 
 import powercrystals.minefactoryreloaded.api.IDeepStorageUnit;
 import powercrystals.minefactoryreloaded.core.UtilInventory;
@@ -24,11 +30,29 @@ public class TileEntityDeepStorageUnit extends TileEntityFactoryInventory implem
 
 	private int _storedQuantity;
 	private ItemStack _storedItem = null;
+	private IItemHandler invHandler = null;
+
+    private static class DSUInvWrapper extends InvWrapper {
+        public DSUInvWrapper(IInventory inv) {
+            super(inv);
+        }
+        
+        @Override
+        public ItemStack getStackInSlot(int slot) {
+            if( slot < 2 ) {
+                return getInv().getStackInSlot(slot);
+            } else {
+                return ((TileEntityDeepStorageUnit)getInv()).getStoredItemType();
+            }
+        }
+    }
 
 	public TileEntityDeepStorageUnit() {
 
 		super(Machine.DeepStorageUnit);
 		setManageSolids(true);
+		
+		invHandler = new DSUInvWrapper(this);
 	}
 
 	@Override
@@ -362,6 +386,23 @@ public class TileEntityDeepStorageUnit extends TileEntityFactoryInventory implem
 	public int getMaxStoredCount() {
 
 		return Integer.MAX_VALUE;
+	}
+
+	@Override
+	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+            return true;
+
+		return super.hasCapability(capability, facing);
+	}
+
+	@Override
+	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return (T)invHandler;
+		}
+
+		return super.getCapability(capability, facing);
 	}
 
 }
