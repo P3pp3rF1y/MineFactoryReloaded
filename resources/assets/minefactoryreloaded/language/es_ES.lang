@@ -36,7 +36,7 @@ tile.mfr.machine.laserdrill.name = Taladro Láser
 tile.mfr.machine.laserdrillprecharger.name = Precargador de Taladro Láser
 tile.mfr.machine.autoanvil.name = Yunque Automático
 tile.mfr.machine.blocksmasher.name = Rompedor de Bloques
-tile.mfr.machine.rednote.name = Bloque de NotaRoja
+tile.mfr.machine.rednote.name = Bloque de Notaroja
 tile.mfr.machine.autobrewer.name = Destiladora Automática
 tile.mfr.machine.fruitpicker.name = Recolector de Frutas
 
@@ -230,17 +230,17 @@ item.mfr.laserfocus.green.name = Enfoque de Láser (Verde)
 item.mfr.laserfocus.red.name = Enfoque de Láser (Rojo)
 item.mfr.laserfocus.black.name = Enfoque de Láser (Negro)
 
-item.mfr.upgrade.radius.lapis.name = Actualización (Lapislázuli)
-item.mfr.upgrade.radius.iron.name = Actualización (Hierro)
-item.mfr.upgrade.radius.tin.name = Actualización (Estaño)
-item.mfr.upgrade.radius.copper.name = Actualización (Cobre)
-item.mfr.upgrade.radius.bronze.name = Actualización (Bronce)
-item.mfr.upgrade.radius.silver.name = Actualización (Plata)
-item.mfr.upgrade.radius.gold.name = Actualización (Oro)
-item.mfr.upgrade.radius.quartz.name = Actualización (Cuarzo)
-item.mfr.upgrade.radius.diamond.name = Actualización (Diamante)
-item.mfr.upgrade.radius.platinum.name = Actualización (Platino)
-item.mfr.upgrade.radius.emerald.name = Actualización (Esmeralda)
+item.mfr.upgrade.radius.lapis.name = Mejora (Lapislázuli)
+item.mfr.upgrade.radius.iron.name = Mejora (Hierro)
+item.mfr.upgrade.radius.tin.name = Mejora (Estaño)
+item.mfr.upgrade.radius.copper.name = Mejora (Cobre)
+item.mfr.upgrade.radius.bronze.name = Mejora (Bronce)
+item.mfr.upgrade.radius.silver.name = Mejora (Plata)
+item.mfr.upgrade.radius.gold.name = Mejora (Oro)
+item.mfr.upgrade.radius.quartz.name = Mejora (Cuarzo)
+item.mfr.upgrade.radius.diamond.name = Mejora (Diamante)
+item.mfr.upgrade.radius.platinum.name = Mejora (Platino)
+item.mfr.upgrade.radius.emerald.name = Mejora (Esmeralda)
 
 item.mfr.upgrade.logic.100.name = Tarjeta de Expansión Lógica PRC LX-100
 item.mfr.upgrade.logic.300.name = Tarjeta de Expansión Lógica PRC LX-300
