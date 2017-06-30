@@ -100,10 +100,13 @@ public class CommonProxy implements LoadingCallback
 				{
 					//{ spigot compat: force data array to exist
 					NibbleArray a = storage[i].getSkylightArray();
-					a.set(0, 0, 0, 0);
-					a.set(0, 0, 0, 15);
-					//}
-					Arrays.fill(a.getData(), (byte)0);
+					if(a != null)
+					{
+						a.set(0, 0, 0, 0);
+						a.set(0, 0, 0, 15);
+						//}
+						Arrays.fill(a.getData(), (byte)0);
+					}
 				}
 			chunk.resetRelightChecks();
 			chunk.setModified(true);
