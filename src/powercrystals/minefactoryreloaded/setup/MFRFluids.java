@@ -252,7 +252,7 @@ public class MFRFluids {
 		MFRRegistry.registerBlock(steamFluid, new ItemBlock(steamFluid));
 
 		if (MFRConfig.vanillaOverrideMilkBucket.getBoolean(true)) {
-			RegistryUtils.overwriteEntry(Item.REGISTRY, "minecraft:milk_bucket", new ItemMFRBucketMilk());
+			RegistryUtils.overwriteEntry(Item.REGISTRY, "minecraft:milk_bucket", new ItemMFRBucketMilk(Items.MILK_BUCKET));
 		}
 	}
 
