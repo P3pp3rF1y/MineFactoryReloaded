@@ -1,6 +1,7 @@
 package powercrystals.minefactoryreloaded.item;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemBucketMilk;
@@ -25,6 +26,7 @@ public class ItemMFRBucketMilk extends ItemBucketMilk {
 		bucketDelegate = new ItemBucket(MFRFluids.milkLiquid);
 		setUnlocalizedName("mfr.bucket.milk");
 		setRegistryName(MineFactoryReloadedCore.modId + ":milk_bucket");
+		setContainerItem(Items.BUCKET);
 	}
 
 	@Override
