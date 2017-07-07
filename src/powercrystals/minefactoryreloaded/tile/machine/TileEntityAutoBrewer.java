@@ -29,9 +29,12 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 
 	protected boolean _inventoryDirty;
 
+	protected byte[] spareResources;
+
 	public TileEntityAutoBrewer() {
 
 		super(Machine.AutoBrewer);
+		spareResources = new byte[getSizeInventory() / 5];
 		setManageSolids(true);
 		_tanks[0].setLock(FluidRegistry.WATER);
 	}
@@ -139,7 +142,7 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 				}
 				for (int i = 0; i < 3; i++) {
 					int slot = getResourceSlot(row, i);
-					if (ingredient.stackSize <= 0 && !UtilInventory.stacksEqual(_inventory[slot], ingredient)) {
+					if (spareResources[row] <= 0 && !UtilInventory.stacksEqual(_inventory[slot], ingredient)) {
 						continue;
 					}
 
@@ -157,12 +160,12 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 					if (current == newPotion)
 						break;
 
-					if (ingredient.stackSize > 0) {
-						--ingredient.stackSize;
+					if (spareResources[row] > 0) {
+						--spareResources[row];
 						break;
 					}
 					--_inventory[slot].stackSize;
-					++ingredient.stackSize;
+					++spareResources[row];
 					if (ingredient.getItem().hasContainerItem(_inventory[slot])) {
 						ItemStack r = ingredient.getItem().getContainerItem(_inventory[slot]);
 						if (r != null && r.isItemStackDamageable() && r.getItemDamage() > r.getMaxDamage())
@@ -190,7 +193,7 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 			return false;
 		}
 
-		boolean hasIngredients = ingredient.stackSize > 0;
+		boolean hasIngredients = spareResources[row] > 0;
 		if (!hasIngredients) for (int i = 0; i < 3; i++) {
 			if (UtilInventory.stacksEqual(ingredient, _inventory[getResourceSlot(row, i)])) {
 				hasIngredients = true;
@@ -272,8 +275,12 @@ public class TileEntityAutoBrewer extends TileEntityFactoryPowered {
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack itemstack) {
 
-		if (itemstack != null && !shouldDropSlotWhenBroken(slot))
-			itemstack.stackSize = 0; // ghost item; stack size (0, 1) also used to reduce resource consumption
+		if (itemstack != null && !shouldDropSlotWhenBroken(slot)) {
+			itemstack.stackSize = 1;
+			if (!ingredientsEqual(_inventory[slot], itemstack)) {
+				spareResources[slot / 5] = 0;
+			}
+		}
 		super.setInventorySlotContents(slot, itemstack);
 	}
 
