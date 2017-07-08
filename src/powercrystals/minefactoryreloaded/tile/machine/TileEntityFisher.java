@@ -156,9 +156,11 @@ public class TileEntityFisher extends TileEntityFactoryPowered {
 		if (!worldObj.isBlockLoaded(loc) || isFisher(x, y, z))
 			return false;
 		IBlockState state = worldObj.getBlockState(loc);
-		if (state.getBlock() != Blocks.WATER || state.getValue(BlockFluidBase.LEVEL) != 0) return false;
 		Block block = state.getBlock();
-		return block.isAssociatedBlock(Blocks.WATER) || block.isAssociatedBlock(Blocks.FLOWING_WATER);
+		if (block.isAssociatedBlock(Blocks.WATER) || block.isAssociatedBlock(Blocks.FLOWING_WATER)) {
+			return state.getValue(BlockFluidBase.LEVEL) == 0;
+		}
+		return false;
 	}
 
 	@Override
@@ -215,7 +217,7 @@ public class TileEntityFisher extends TileEntityFactoryPowered {
 			Field f = Random.class.getDeclaredField("seed");
 			f.setAccessible(true);
 			_Random_seed = f;
-		} catch (Throwable _) {
+		} catch (Throwable t) {
 		}
 	}
 
