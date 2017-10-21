@@ -105,7 +105,13 @@ tile.mfr.road.light.on.name = 铺路灯
 tile.mfr.road.light.inverted.off.name = 铺路灯(反相)
 tile.mfr.road.light.inverted.on.name = 铺路灯(反相)
 
-tile.mfr.plastic.regular.name = 塑料块
+tile.mfr.plastic.plain.name = 塑料块
+tile.mfr.plastic.bricks.name = 塑料砖块
+tile.mfr.plastic.brickslarge.name = 大型塑料砖块
+tile.mfr.plastic.chiseled.name =  雕凿塑料砖块
+tile.mfr.plastic.column.name = 塑料柱
+tile.mfr.plastic.paver.name = 塑料铺路石
+tile.mfr.plastic.road.name = 塑料铺路砖
 
 tile.mfr.decorative.brick.ice.name = 冰砖块
 tile.mfr.decorative.brick.glowstone.name = 荧光砖块
@@ -204,6 +210,8 @@ item.mfr.plastic.cell.name = 塑料单元
 item.mfr.plastic.cell.prefix.name =
 item.mfr.plastic.cell.suffix.name =单元
 
+item.mfr.glass.armor.helm.name = 太阳镜
+
 item.mfr.plastic.armor.helm.name  = 塑料头盔
 item.mfr.plastic.armor.chest.name = 塑料胸甲
 item.mfr.plastic.armor.legs.name  = 塑料护腿
@@ -267,7 +275,7 @@ item.mfr.rocketlauncher.name = 自推进反物质火箭发射筒
 
 item.mfr.potatolauncher.name = 土豆加农炮
 
-item.mfr.fishingrod.name = 炸鱼竿
+item.mfr.fishingrod.name = 爆破钓竿
 
 item.mfr.ceramicdye.white.name = 陶瓷颜料(白色)
 item.mfr.ceramicdye.orange.name = 陶瓷颜料(橙色)
@@ -402,7 +410,11 @@ circuit.mfr.xor.4 = 异或(4-输入)
 
 container.mfr.radius = 半径:
 container.mfr.power = 能量图:
-container.mfr.pendingDrops = 该机器被塞满了物品
+
+container.mfr.autobrewer.resources = Resources
+
+container.mfr.pendingDrops = 该机器被塞满了 \u00A7cstuffed 物品
+container.mfr.redstoneSignal = 该机器充满了 \u00A74Redstone 信号
 
 chat.info.mfr.safarinet.capture = 切换为捕获模式
 chat.info.mfr.safarinet.release = 切换为释放模式
@@ -427,6 +439,7 @@ chat.info.mfr.rednet.meter.dustprefix = 红石粉
 
 chat.info.mfr.rednet.memorycard.uploaded = PRC程序已经从插入PRC的内存卡载入
 chat.info.mfr.rednet.memorycard.downloaded = PRC程序已经下载到插入PRC的内存卡中
+chat.info.mfr.rednet.memorycard.empty = PRC不包含任何程序
 chat.info.mfr.rednet.memorycard.error = PRC没有足够的元件来运行该程序
 chat.info.mfr.rednet.memorycard.error2 = 该PRC已被其他人使用
 
@@ -453,6 +466,8 @@ chat.info.mfr.chunkloader.noticket = 你的区块加载器太多了因此它不�
 # this is a limitation of the localization system.
 # Replace "item." or "tile." with "tip.info" and remove ".name" and that tooltip will be
 # displayed under the item with exceptions, such as the PRC which uses a custom entry for legacy reasons
+
+tip.info.mfr.hammer = 它就如同扳手，但更容易粉碎物品
 
 tip.info.mfr.rubberwood.sapling.massive = Warning: Pakratt's world ship.
 
@@ -494,3 +509,14 @@ death.attack.mfr.grinder = %1$s被磨碎成了渣渣。
 death.attack.mfr.grinder.player = %2$s确信%1$s已经被磨碎成了渣渣。
 death.attack.mfr.laser = %1$s被激光分解了.
 death.attack.mfr.laser.player = %2$s确信%1$s已经被激光分解掉了.
+
+info.mfr.work=工作
+info.mfr.idle=空闲
+info.mfr.buffer=缓存
+info.mfr.efficiency=效率
+info.mfr.template=模板
+info.mfr.output=输出
+info.mfr.preferences=配置
+info.mfr.loot=掉落
+info.mfr.legacy=Legacy
+info.mfr.folded=堆叠
